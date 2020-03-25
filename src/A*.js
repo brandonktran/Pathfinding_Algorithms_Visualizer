@@ -1,8 +1,8 @@
 //Initializing various parameters
 let width = 800;
 let height = 800;
-let col = 20;
-let row = 20;
+let col = 50;
+let row = 50;
 let source;
 let target;
 let mesh = new Array(row);
@@ -39,8 +39,8 @@ function setup() {
   }
 
 
-  source = mesh[0][0];
-  target = mesh[row-1][col-1];
+  source = mesh[33][22];
+  target = mesh[44][30];
   source.g = 0;
   source.h = heuristic(start, target);
   source.f = source.g + source.h;
@@ -118,7 +118,7 @@ function draw() {
       S[i].display('yellow');
     }
 
-    // target.display('blue');
+    target.display('blue');
 
 
   }

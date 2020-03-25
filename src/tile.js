@@ -5,6 +5,8 @@ function tile(i, j) {
   this.parent = undefined;
   this.distance = Infinity;
   this.isObstacle =false;
+  this.visited = false;
+
 
 }
 

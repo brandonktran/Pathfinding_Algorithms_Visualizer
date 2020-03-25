@@ -1,2 +1,4 @@
 need to implement with priority queue
 fix path visual
+
+implement recursive division algorithm- look at hurna maze generator algorithm

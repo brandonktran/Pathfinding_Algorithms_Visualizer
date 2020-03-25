@@ -72,9 +72,12 @@ function mouseDragged() {
 function mouseClicked() {
   for (let i = 0; i < row; i++) {
     for (let j = 0; j < col; j++) {
-      if (mouseX > i * width / col && mouseX < (i + 1) * width / col && mouseY > j * height / row && mouseY < (j + 1) * height / row) {
+      if (mouseX > i * width / col && mouseX < (i + 1) * width / col && mouseY > j * height / row && mouseY < (j + 1) * height / row && mesh[i][j].isObstacle == false) {
         mesh[i][j].display('black');
         mesh[i][j].isObstacle = true;
+      } else if (mouseX > i * width / col && mouseX < (i + 1) * width / col && mouseY > j * height / row && mouseY < (j + 1) * height / row) {
+        mesh[i][j].display('white');
+        mesh[i][j].isObstacle = false;
       }
     }
   }
