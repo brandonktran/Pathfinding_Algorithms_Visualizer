@@ -1,8 +1,8 @@
 //Initializing various parameters
 let width = 800;
 let height = 800;
-let col = 5;
-let row = 5;
+let col = 10;
+let row = 10;
 let source;
 let target;
 let mesh = new Array(row);
@@ -26,12 +26,13 @@ function draw() {
 
     if (Q.length > 0) {
       let u = Q[0];
-      for (let i = 1; i < Q.length; i++)
+      for (let i = 1; i < Q.length; i++) {
         if (Q[i].distance < u.distance) {
           u = Q[i];
         } else {
           u = Q[0];
         }
+      }
 
       removeElement(Q, u)
 
