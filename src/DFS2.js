@@ -67,6 +67,8 @@ function draw() {
           if (!neighbors[i].visited && !neighbors[i].isObstacle) {
             stack.push(neighbors[i]);
             neighbors[i].parent = cur;
+          } else {
+            continue;
           }
         }
       }
