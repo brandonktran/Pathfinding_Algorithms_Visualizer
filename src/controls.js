@@ -1,3 +1,21 @@
+//Initializing various parameters
+let width = 800;
+let height = 800;
+let col = 50;
+let row = 50;
+let source;
+let target;
+let mesh = new Array(row);
+let S;
+let openList = [];
+let closedList = [];
+let queue = [];
+let discovered = [];
+let stack = [];
+let visited = [];
+let started = false;
+
+
 //start visualizer
 function start() {
   started = true;

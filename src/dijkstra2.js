@@ -1,20 +1,3 @@
-//Initializing various parameters
-let width = 800;
-let height = 800;
-let col = 50;
-let row = 50;
-let source;
-let target;
-let mesh = new Array(row);
-let S;
-let openList = [];
-let closedList = [];
-let started = false;
-
-function heuristic(a, b) {
-  return Math.sqrt((a.i - b.i) ** 2 + (b.j - a.j) ** 2);
-}
-
 function setup() {
   createCanvas(width, height);
   canvas = createCanvas(width, height);
@@ -103,12 +86,7 @@ function draw() {
     }
 
     S = [];
-    var temp = cur;
-    S.push(temp);
-    while (temp.parent) {
-      S.push(temp.parent);
-      temp = temp.parent;
-    }
+    retrace(S, cur);
 
 
 
@@ -126,8 +104,6 @@ function draw() {
     }
     endShape();
     pop();
-
-
 
     target.display('blue');
 

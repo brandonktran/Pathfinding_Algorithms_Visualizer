@@ -1,53 +1,10 @@
-//Initializing various parameters
-let width = 800;
-let height = 800;
-let col = 50;
-let row = 50;
-let source;
-let target;
-let mesh = new Array(row);
-let S;
-let openList = [];
-let closedList = [];
-let started = false;
-
-function heuristic(a, b) {
-  return Math.sqrt((a.i-b.i)**2+(b.j-a.j)**2);
-}
+// algorithm implemented following pseudocode on Wiki's A* algorithm page (https://en.wikipedia.org/wiki/A*_search_algorithm)
 
 function setup() {
   createCanvas(width, height);
   canvas = createCanvas(width, height);
   cv = canvas.parent("canvasContainer");
 
-  // for (let i = 0; i < mesh.length; i++) {
-  //   mesh[i] = new Array(col);
-  // }
-
-  // for (let i = 0; i < row; i++) {
-  //   for (let j = 0; j < col; j++) {
-  //     mesh[i][j] = new tile(i, j);
-  //     mesh[i][j].display('white');
-  //   }
-  // }
-
-
-  // for (let i = 0; i < row; i++) {
-  //   for (let j = 0; j < col; j++) {
-  //     mesh[i][j].getNeighbors(i, j);
-  //   }
-  // }
-
-
-  // source = mesh[33][22];
-  // target = mesh[44][30];
-  // source.g = 0;
-  // source.h = heuristic(start, target);
-  // source.f = source.g + source.h;
-  // source.display('green');
-  // target.display('blue);
-
-  //  openList.push(source);
   reset();
   // noLoop();
 
@@ -106,13 +63,7 @@ function draw() {
     }
 
     S = [];
-    var temp = cur;
-    S.push(temp);
-    while (temp.parent) {
-      S.push(temp.parent);
-      temp = temp.parent;
-    }
-
+    retrace(S, cur)
 
 
     for (let i = 0; i < S.length; i++) {

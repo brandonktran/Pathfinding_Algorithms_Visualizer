@@ -49,7 +49,6 @@ tile.prototype.getNeighbors = function getNeighbors() {
 }
 
 
-
 // Helper functons
 function removeElement(arr, elt) {
   for (var i = arr.length - 1; i >= 0; i--) {
@@ -59,7 +58,21 @@ function removeElement(arr, elt) {
   }
 }
 
+function heuristic(a, b) {
+  return Math.sqrt((a.i - b.i) ** 2 + (b.j - a.j) ** 2);
+}
+
 function euclideanDistance(x, y) {
   return dist(x.i, x.j, y.i, y.j);
+
+}
+
+function retrace(arr, current) {
+  let temp = current;
+  arr.push(temp);
+  while (temp.parent) {
+    arr.push(temp.parent);
+    temp = temp.parent;
+  }
 
 }
