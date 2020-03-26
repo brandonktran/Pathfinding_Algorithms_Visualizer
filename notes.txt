@@ -1,4 +1,6 @@
-need to implement with priority queue
-fix path visual
+need to implement Dijkstra with priority queue
+fix path visual for DFS2
+
+add switch cases
 
 implement recursive division algorithm- look at hurna maze generator algorithm

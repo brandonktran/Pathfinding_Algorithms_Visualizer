@@ -8,7 +8,6 @@ let target;
 let mesh = new Array(row);
 let S;
 let stack = [];
-let visited = [];
 let started = false;
 
 function heuristic(a, b) {
@@ -65,7 +64,7 @@ function draw() {
         cur.visited = true;
         let neighbors = cur.neighbors;
         for (i = 0; i < neighbors.length; i++) {
-          if (!neighbors[i].visited) {
+          if (!neighbors[i].visited && !neighbors[i].isObstacle) {
             stack.push(neighbors[i]);
             neighbors[i].parent = cur;
           }
@@ -81,7 +80,6 @@ function draw() {
     for (let i = 0; i < stack.length; i++) {
       stack[i].display('red');
     }
-
 
     for (let i = 0; i < row; i++) {
       for (let j = 0; j < col; j++) {

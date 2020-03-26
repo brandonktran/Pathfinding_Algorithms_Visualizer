@@ -15,6 +15,9 @@ function reset() {
   mesh = new Array(row);
   Q = [];
   S = [];
+  queue = [];
+  discovered = [];
+  stack = [];
 
   started = false;
 

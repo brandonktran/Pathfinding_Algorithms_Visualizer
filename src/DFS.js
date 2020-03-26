@@ -65,7 +65,7 @@ function draw() {
       let neighbors = cur.neighbors;
 
       for (i=0; i<neighbors.length; i++) {
-        if (!visited.includes(neighbors[i])) {
+        if (!visited.includes(neighbors[i]) && !neighbors[i].isObstacle) {
           stack.push(neighbors[i]);
           neighbors[i].parent = cur;
           visited.push(neighbors[i]);
