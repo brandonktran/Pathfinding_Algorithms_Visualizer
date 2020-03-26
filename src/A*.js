@@ -1,4 +1,4 @@
-// algorithm implemented following pseudocode on Wiki's A* algorithm page (https://en.wikipedia.org/wiki/A*_search_algorithm)
+// algorithm implemented following pseudocode found here: https://www.researchgate.net/figure/A-search-algorithm-Pseudocode-of-the-A-search-algorithm-operating-with-open-and-closed_fig8_232085273
 
 function setup() {
   createCanvas(width, height);
@@ -22,10 +22,11 @@ function draw() {
           m = openList[0];
         }
       }
+
       var cur = m;
-      if (m==target) {
-        noLoop();
+      if (m == target) {
         console.log('shortest path found!')
+        noLoop();
       }
 
       removeElement(openList, m);
@@ -70,17 +71,9 @@ function draw() {
       S[i].display('yellow');
     }
 
-    push();
-    noFill();
-    stroke(0);
-    strokeWeight(2);
-    beginShape();
-    for (var i = 0; i < S.length; i++) {
-      vertex(S[i].i * width / col + (width / col) / 2, S[i].j * height / row + (height / row) / 2);
-    }
-    endShape();
-    pop();
+    drawPath(S);
 
+    source.display('purple')
     target.display('blue');
 
 

@@ -8,7 +8,6 @@ function tile(i, j) {
   this.visited = false;
   this.isGap = false;
 
-
 }
 
 tile.prototype.display = function display(color) {
@@ -33,7 +32,7 @@ tile.prototype.getNeighbors = function getNeighbors() {
     this.neighbors.push(mesh[this.i][this.j - 1]);
   }
 
-  //diagonal neighbors
+  // diagonal neighbors
   if (this.i < row - 1 && this.j < col - 1) {
     this.neighbors.push(mesh[this.i + 1][this.j + 1]);
   }
@@ -75,4 +74,17 @@ function retrace(arr, current) {
     temp = temp.parent;
   }
 
+}
+
+function drawPath(arr) {
+  push();
+  noFill();
+  stroke(0);
+  strokeWeight(2);
+  beginShape();
+  for (var i = 0; i < arr.length; i++) {
+    vertex(arr[i].i * width / col + (width / col) / 2, arr[i].j * height / row + (height / row) / 2);
+  }
+  endShape();
+  pop();
 }

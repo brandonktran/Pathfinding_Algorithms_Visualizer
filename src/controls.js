@@ -1,8 +1,8 @@
 //Initializing various parameters
-let width = 800;
-let height = 800;
-let col = 50;
-let row = 50;
+let width = 600;
+let height = 600;
+let col = 51;
+let row = 51;
 let source;
 let target;
 let mesh = new Array(row);
@@ -24,10 +24,10 @@ function start() {
 
 //reset visualizer
 function reset() {
-  width = 800;
-  height = 800;
-  col = parseInt(slider_row.value);
-  row = parseInt(slider_row.value);
+  width = 600;
+  height = 600;
+  col = 51;  //parseInt(slider_row.value);
+  row = 51; //parseInt(slider_row.value);
   source;
   target;
   mesh = new Array(row);
@@ -41,6 +41,10 @@ function reset() {
   visited = [];
 
   started = false;
+  let sPos = document.getElementById("sourcePos");
+  let sPosOutput = sPos.value.split(',');
+  let targetPos = document.getElementById("targetPos");
+  let targetPosOutput = targetPos.value.split(',');
 
 
   for (let i = 0; i < mesh.length; i++) {
@@ -69,13 +73,13 @@ function reset() {
   }
 
 
-  source = mesh[33][22];
-  target = mesh[44][30];
+  source = mesh[parseInt(sPosOutput[0])][parseInt(sPosOutput[1])];
+  target = mesh[parseInt(targetPosOutput[0])][parseInt(targetPosOutput[1])];
   source.g = 0;
   source.distance = 0;
   source.h = heuristic(start, target);
   source.f = source.g + source.h;
-  source.display('green');
+  source.display('purple');
   target.display('blue');
 
   openList.push(source);
@@ -84,10 +88,7 @@ function reset() {
   visited.push(source);
   stack.push(source);
   // noLoop();
-
-
   // open.push(source);
-  // noLoop();
 }
 
 
@@ -95,7 +96,7 @@ function reset() {
 function mouseDragged() {
   for (let i = 0; i < row; i++) {
     for (let j = 0; j < col; j++) {
-      if (mouseX > i * width / col && mouseX < (i + 1) * width / col && mouseY > j * height / row && mouseY < (j + 1) * height / row) {
+      if (mouseX > i * width / col && mouseX < (i + 1) * width / col && mouseY > j * height / row && mouseY < (j + 1) * height / row && mesh[i][j] != source && mesh[i][j] != target) {
         mesh[i][j].display('black');
         mesh[i][j].isObstacle = true;
       }
@@ -106,10 +107,10 @@ function mouseDragged() {
 function mouseClicked() {
   for (let i = 0; i < row; i++) {
     for (let j = 0; j < col; j++) {
-      if (mouseX > i * width / col && mouseX < (i + 1) * width / col && mouseY > j * height / row && mouseY < (j + 1) * height / row && mesh[i][j].isObstacle == false) {
+      if (mouseX > i * width / col && mouseX < (i + 1) * width / col && mouseY > j * height / row && mouseY < (j + 1) * height / row && mesh[i][j].isObstacle == false && mesh[i][j] != source && mesh[i][j] != target) {
         mesh[i][j].display('black');
         mesh[i][j].isObstacle = true;
-      } else if (mouseX > i * width / col && mouseX < (i + 1) * width / col && mouseY > j * height / row && mouseY < (j + 1) * height / row) {
+      } else if (mouseX > i * width / col && mouseX < (i + 1) * width / col && mouseY > j * height / row && mouseY < (j + 1) * height / row && mesh[i][j] != source && mesh[i][j] != target) {
         mesh[i][j].display('white');
         mesh[i][j].isObstacle = false;
       }
@@ -117,11 +118,10 @@ function mouseClicked() {
   }
 }
 
+// let slider_row = document.getElementById("rows");
+// let output_row = document.getElementById("rows1");
+// output_row.innerHTML = slider_row.value;
 
-let slider_row = document.getElementById("rows");
-let output_row = document.getElementById("rows1");
-output_row.innerHTML = slider_row.value;
-
-slider_row.oninput = function () {
-  output_row.innerHTML = this.value;
-}
+// slider_row.oninput = function () {
+//   output_row.innerHTML = this.value;
+// }
