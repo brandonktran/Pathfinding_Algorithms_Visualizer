@@ -8,10 +8,11 @@
 </head>
 <body>
   <div class="control_container">
-    <input type="range" min="10" max="100" value="20" class="slider" id="rows">
+    <input type="range" min="10" max="100" value="51" class="slider" id="rows">
     <p>Number of Rows & Columns: <span id="rows1"></span></p>
     <button id="start" class='buttons' onclick="start()">Start!!!</button>
     <button id="reset" class='buttons' onclick="reset()">Reset!!!</button>
+    <button id="maze" class='buttons' onclick="recursive_div(0, row-1, 0, col-1)">Generate Maze</button>
   </div>
   <div id = "canvasContainer"></div>
   <script src="p5/p5.js"></script>
@@ -19,7 +20,9 @@
   <!-- <script src="src/dijkstra2.js"></script> -->
   <!-- <script src="src/A*.js"></script> -->
   <!-- <script src="src/BFS.js"></script> -->
+  <!-- <script src="src/DFS.js"></script> -->
   <script src="src/DFS2.js"></script>
+  <script src="src/maze.js"></script>
   <script src="src/controls.js"></script>
 </body>
 </html>

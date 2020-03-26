@@ -15,9 +15,12 @@ function reset() {
   mesh = new Array(row);
   Q = [];
   S = [];
+  openList = [];
+  closedList = [];
   queue = [];
   discovered = [];
   stack = [];
+  visited = [];
 
   started = false;
 
@@ -48,11 +51,21 @@ function reset() {
   }
 
 
-  source = mesh[0][0];
-  source.display('green')
+  source = mesh[33][22];
+  target = mesh[44][30];
+  source.g = 0;
   source.distance = 0;
-  target = mesh[row - 1][col - 1];
-  target.display('red')
+  source.h = heuristic(start, target);
+  source.f = source.g + source.h;
+  source.display('green');
+  target.display('blue');
+
+  openList.push(source);
+  discovered.push(source);
+  queue.push(source);
+  visited.push(source);
+  stack.push(source);
+  // noLoop();
 
 
   // open.push(source);

@@ -1,8 +1,8 @@
 //Initializing various parameters
 let width = 800;
 let height = 800;
-let col = 50;
-let row = 50;
+let col = 51;
+let row = 51;
 let source;
 let target;
 let mesh = new Array(row);
@@ -19,31 +19,32 @@ function setup() {
   canvas = createCanvas(width, height);
   cv = canvas.parent("canvasContainer");
 
-  for (let i = 0; i < mesh.length; i++) {
-    mesh[i] = new Array(col);
-  }
+  reset();
+  // for (let i = 0; i < mesh.length; i++) {
+  //   mesh[i] = new Array(col);
+  // }
 
-  for (let i = 0; i < row; i++) {
-    for (let j = 0; j < col; j++) {
-      mesh[i][j] = new tile(i, j);
-      mesh[i][j].display('white');
-    }
-  }
-
-
-  for (let i = 0; i < row; i++) {
-    for (let j = 0; j < col; j++) {
-      mesh[i][j].getNeighbors(i, j);
-    }
-  }
+  // for (let i = 0; i < row; i++) {
+  //   for (let j = 0; j < col; j++) {
+  //     mesh[i][j] = new tile(i, j);
+  //     mesh[i][j].display('white');
+  //   }
+  // }
 
 
-  source = mesh[33][22];
-  target = mesh[44][30];
-  source.display('green');
-  target.display('red');
+  // for (let i = 0; i < row; i++) {
+  //   for (let j = 0; j < col; j++) {
+  //     mesh[i][j].getNeighbors(i, j);
+  //   }
+  // }
 
-  stack.push(source);
+
+  // source = mesh[33][22];
+  // target = mesh[44][30];
+  // source.display('green');
+  // target.display('red');
+
+  // stack.push(source);
   // noLoop();
 
 }
@@ -104,6 +105,17 @@ function draw() {
     for (let i = 0; i < S.length; i++) {
       S[i].display('yellow');
     }
+
+    push();
+    noFill();
+    stroke(0);
+    strokeWeight(2);
+    beginShape();
+    for (var i = 0; i < S.length; i++) {
+      vertex(S[i].i * width / col + (width / col) / 2, S[i].j * height / row + (height / row) / 2);
+    }
+    endShape();
+    pop();
 
     target.display('blue');
 

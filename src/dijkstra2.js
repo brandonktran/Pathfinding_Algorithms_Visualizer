@@ -116,6 +116,19 @@ function draw() {
       S[i].display('yellow');
     }
 
+    push();
+    noFill();
+    stroke(0);
+    strokeWeight(2);
+    beginShape();
+    for (var i = 0; i < S.length; i++) {
+      vertex(S[i].i * width / col + (width / col) / 2, S[i].j * height / row + (height / row) / 2);
+    }
+    endShape();
+    pop();
+
+
+
     target.display('blue');
 
 

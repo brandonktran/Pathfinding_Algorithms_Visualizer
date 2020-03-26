@@ -6,6 +6,7 @@ function tile(i, j) {
   this.distance = Infinity;
   this.isObstacle =false;
   this.visited = false;
+  this.isGap = false;
 
 
 }

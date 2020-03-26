@@ -20,41 +20,42 @@ function setup() {
   canvas = createCanvas(width, height);
   cv = canvas.parent("canvasContainer");
 
-  for (let i = 0; i < mesh.length; i++) {
-    mesh[i] = new Array(col);
-  }
+  // for (let i = 0; i < mesh.length; i++) {
+  //   mesh[i] = new Array(col);
+  // }
 
-  for (let i = 0; i < row; i++) {
-    for (let j = 0; j < col; j++) {
-      mesh[i][j] = new tile(i, j);
-      mesh[i][j].display('white');
-    }
-  }
-
-
-  for (let i = 0; i < row; i++) {
-    for (let j = 0; j < col; j++) {
-      mesh[i][j].getNeighbors(i, j);
-    }
-  }
+  // for (let i = 0; i < row; i++) {
+  //   for (let j = 0; j < col; j++) {
+  //     mesh[i][j] = new tile(i, j);
+  //     mesh[i][j].display('white');
+  //   }
+  // }
 
 
-  source = mesh[33][22];
-  target = mesh[44][30];
-  source.g = 0;
-  source.h = heuristic(start, target);
-  source.f = source.g + source.h;
-  source.display('green');
-  target.display('red');
+  // for (let i = 0; i < row; i++) {
+  //   for (let j = 0; j < col; j++) {
+  //     mesh[i][j].getNeighbors(i, j);
+  //   }
+  // }
 
-   openList.push(source);
+
+  // source = mesh[33][22];
+  // target = mesh[44][30];
+  // source.g = 0;
+  // source.h = heuristic(start, target);
+  // source.f = source.g + source.h;
+  // source.display('green');
+  // target.display('blue);
+
+  //  openList.push(source);
+  reset();
   // noLoop();
 
 }
 
 function draw() {
   if (started) {
-  // background(255);
+    // background(255);
     if (openList.length > 0) {
       let m = openList[0];
       for (let i = 1; i < openList.length; i++) {
@@ -117,6 +118,17 @@ function draw() {
     for (let i = 0; i < S.length; i++) {
       S[i].display('yellow');
     }
+
+    push();
+    noFill();
+    stroke(0);
+    strokeWeight(2);
+    beginShape();
+    for (var i = 0; i < S.length; i++) {
+      vertex(S[i].i * width / col + (width / col) / 2, S[i].j * height / row + (height / row) / 2);
+    }
+    endShape();
+    pop();
 
     target.display('blue');
 
