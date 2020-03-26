@@ -54,7 +54,7 @@ function reset() {
   for (let i = 0; i < row; i++) {
     for (let j = 0; j < col; j++) {
       mesh[i][j] = new tile(i, j);
-      mesh[i][j].display('white');
+      mesh[i][j].display(200);
     }
   }
 

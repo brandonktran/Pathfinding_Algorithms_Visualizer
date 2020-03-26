@@ -1,3 +1,47 @@
-/* .buttons, .slider {
+/* Thanks to Tim Wagner for button design idea! */
 
+/* body {
+  background-color: black;
 } */
+
+.buttons {
+  height : 40px;
+  font-size: 15px;
+  margin: 3px;
+}
+
+button.red {
+    background: -webkit-linear-gradient(top, #DD4B39, #D14836);
+    border: 1px solid #DD4B39;
+    color: white;
+    text-shadow: 0 1px 0 #C04131;
+}
+
+button.red:hover {
+     background: -webkit-linear-gradient(top, #DD4B39, #C53727);
+     border: 1px solid #AF301F;
+}
+
+button.orange {
+    color: white;
+    border: 1px solid #FB8F3D;
+    background: -webkit-linear-gradient(top, #FDA251, #FB8F3D);
+}
+
+button.orange:hover {
+    border: 1px solid #EB5200;
+    background: -webkit-linear-gradient(top, #FD924C, #F9760B);
+    box-shadow: 0 1px #EFEFEF;
+}
+
+button.green {
+    background: -webkit-linear-gradient(top, rgb(26, 148, 26), rgb(20, 140, 38));
+    border: 1px solid rgb(26, 148, 26);
+    color: white;
+    text-shadow: 0 1px 0 rgb(27, 157, 27);
+}
+
+button.green:hover {
+     background: -webkit-linear-gradient(top, rgb(26, 148, 26), rgb(14, 191, 40));
+     border: 1px solid green;
+}

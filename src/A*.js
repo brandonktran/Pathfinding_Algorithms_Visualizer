@@ -57,10 +57,10 @@ function draw() {
     }
 
     for (let i = 0; i < openList.length; i++) {
-      openList[i].display('red');
+      openList[i].display('#FF0000');
     }
     for (let i = 0; i < closedList.length; i++) {
-      closedList[i].display('green');
+      closedList[i].display('#00FFFF');
     }
 
     S = [];

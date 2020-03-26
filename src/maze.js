@@ -1,13 +1,21 @@
 function recursive_div(top, bottom, left ,right) {
+  let source_x = source.i;
+  let source_y = source.j;
+  let target_x = target.i;
+  let target_y = target.j;
+
   //cut horizontally
   let start_range = top + 2;
   let end_range = bottom - 1;
   y = Math.floor(map(Math.random(), 0, 1, start_range, end_range));
 
+  while (y == source_y ||  y == target_y) {
+    y = Math.floor(map(Math.random(), 0, 1, start_range, end_range));
+  }
+
   if (y%2 !=0) {
     y=y-1;
   }
-  // y = random.randrange(start_range, end_range, 2)
 
 
   for (i=0; i<col; i++) {
@@ -22,10 +30,14 @@ function recursive_div(top, bottom, left ,right) {
   end_range = right - 1;
   x = Math.floor(map(Math.random(), 0, 1, start_range, end_range));
 
+  while (x == source_x || x == target_x) {
+    x = Math.floor(map(Math.random(), 0, 1, start_range, end_range));
+  }
+
   if (x % 2 != 0) {
     x = x - 1;
   }
-  // y = random.randrange(start_range, end_range, 2)
+
 
   for (i = 0; i < col; i++) {
     if (mesh[x][i].isGap == false || mesh[x][i] != source || mesh[x][i] != target) {
@@ -44,7 +56,7 @@ function recursive_div(top, bottom, left ,right) {
     if (mesh[gap][y] != source || mesh[gap][y] != target) {
       mesh[gap][y].isObstacle = false;
       mesh[gap][y].isGap = true;
-      mesh[gap][y].display('white');
+      mesh[gap][y].display(200);
     }
   }
   if (wall != 1) {
@@ -55,7 +67,7 @@ function recursive_div(top, bottom, left ,right) {
     if (mesh[gap][y] != source || mesh[gap][y] != target) {
       mesh[gap][y].isObstacle = false;
       mesh[gap][y].isGap = true;
-      mesh[gap][y].display('white');
+      mesh[gap][y].display(200);
     }
   }
 
@@ -67,7 +79,7 @@ function recursive_div(top, bottom, left ,right) {
     if (mesh[x][gap] != source || mesh[x][gap] != target) {
       mesh[x][gap].isObstacle = false;
       mesh[x][gap].isGap = true;
-      mesh[x][gap].display('white');
+      mesh[x][gap].display(200);
     }
   }
 
@@ -79,25 +91,25 @@ function recursive_div(top, bottom, left ,right) {
     if (mesh[x][gap] != source || mesh[x][gap] != target) {
       mesh[x][gap].isObstacle = false;
       mesh[x][gap].isGap = true;
-      mesh[x][gap].display('white');
+      mesh[x][gap].display(200);
     }
   }
 
 
   //  recursive step
-  if (bottom > y + 21 && x > left + 21) {
+  if (bottom > y + 17 && x > left + 17) {
     recursive_div(y, bottom, left, x);
   }
 
-  if (bottom > y + 21 && x + 21 < right) {
+  if (bottom > y + 17 && x + 17 < right) {
     recursive_div(y, bottom, x, right);
   }
 
-  if (top + 21 < y && x + 21 < right) {
+  if (top + 17 < y && x + 17 < right) {
     recursive_div(top, y, x, right);
   }
 
-  if (top + 21 < y && x > left + 21) {
+  if (top + 17 < y && x > left + 17) {
     recursive_div(top, y, left, x);
   }
 
