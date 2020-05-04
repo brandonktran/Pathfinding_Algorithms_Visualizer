@@ -12,7 +12,7 @@
     <!-- <p>Number of Rows & Columns: <span id="rows1"></span></p> -->
     <button id="start" class='red buttons' onclick="start()">Start!</button>
     <button id="reset" class='orange buttons' onclick="reset()">Reset!</button>
-    <button id="maze" class='green buttons' onclick="recursive_div(0, row-1, 0, col-1)">Generate Maze</button>
+    <button id="maze" class='green buttons' onclick="reset(), recursive_div(0, row-1, 0, col-1)">Generate Maze</button>
 
     <label for="sourcePos"><b>Start Position: </b></label>
     <input type="text" id="sourcePos" name="sourcePos" required minlength="3" maxlength="9" size="5" value = "15, 15">
