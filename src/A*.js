@@ -48,7 +48,7 @@ function draw() {
         if (!openList.includes(neighbors[i]) && !closedList.includes(neighbors[i]) && !neighbors[i].isObstacle) {
           openList.push(neighbors[i]);
           neighbors[i].g = cost;
-          neighbors[i].h = heuristic(neighbors[i], target);
+          neighbors[i].h = euclideanDistance(neighbors[i], target);
           neighbors[i].f = neighbors[i].g + neighbors[i].h;
           neighbors[i].parent = cur;
         }

@@ -77,7 +77,7 @@ function reset() {
   target = mesh[parseInt(targetPosOutput[0])][parseInt(targetPosOutput[1])];
   source.g = 0;
   source.distance = 0;
-  source.h = heuristic(start, target);
+  source.h = euclideanDistance(start, target);
   source.f = source.g + source.h;
   source.display('purple');
   target.display('blue');
